@@ -16,19 +16,20 @@
 
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
-	try {
-		throw Bureaucrat();
-	}
-	catch (std::exception& Bureaucrat1) {
-		std::cout << Bureaucrat1.what();
-		return ;
-	}
 	std::cout << "Default Constructor of Bureaucrat called" << std::endl;
+	if (_grade > 150)
+			throw Bureaucrat::GradeTooHighException();
+	else if (_grade < 1)
+			throw Bureaucrat::GradeTooLowException();
 }
 
-Bureaucrat::Bureaucrat(const std::string &_name, unsigned short int _grade) : _name(_name), _grade(_grade)
+Bureaucrat::Bureaucrat(const std::string &_name, short int _grade) : _name(_name), _grade(_grade)
 {
 	std::cout << "Parameterized Constructor of Bureaucrat called" << std::endl;
+	if (_grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else if (_grade < 1)
+		throw Bureaucrat::GradeTooLowException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &other) : _name(other._name), _grade(other._grade)
@@ -55,22 +56,25 @@ const std::string &Bureaucrat::getName(void) const
 	return (this->_name);
 }
 
-unsigned short int Bureaucrat::getGrade() const
+short int Bureaucrat::getGrade() const
 {
 	return (this->_grade);
 }
 
-
-const Bureaucrat::char* what(unsigned short int grade) const ()
+void	Bureaucrat::incrementGrade()
 {
-	if (grade < 1)
-		return "Grade too low\n";
-	else (grade > 150)
-		return "Grade too high\n";
+	this->_grade--;
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade < 1)
+		throw Bureaucrat::GradeTooLowException();
 }
 
-// void	Bureaucrat::GradeTooHighException() const
-// {
-//
-// }
-// or a Bureaucrat::GradeTooLowException
+void	Bureaucrat::decrementGrade()
+{
+	this->_grade++;
+	if (this->_grade > 150)
+		throw Bureaucrat::GradeTooHighException();
+	else if (this->_grade < 1)
+		throw Bureaucrat::GradeTooLowException();
+}

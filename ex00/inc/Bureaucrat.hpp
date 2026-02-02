@@ -13,25 +13,44 @@
 #ifndef	BUREAUCRAT_HPP
 # define BUREAUCRAT_HPP
 
+#include <exception>
 #include <string>
 #include <iostream>
 
-class Bureaucrat : public std::exception
+class Bureaucrat
 {
 	private:
 		const std::string 	_name;
-		unsigned short int	_grade;
+		short int	_grade;
 	public:
+		class GradeTooHighException : std::exception
+		{
+			public:
+				virtual const char* what() const throw ()
+				{
+					return ("Grade too high\n");
+				}
+			
+		};
+		class GradeTooLowException : std::exception
+		{
+			public:
+				virtual const char* what() const throw ()
+				{
+					return ("Grade too low\n");
+				}
+			
+		};
 		Bureaucrat(void);
-		Bureaucrat(std::string const &name, unsigned short int _grade);
+		Bureaucrat(std::string const &name, short int _grade);
 		Bureaucrat(Bureaucrat &other);
-		virtual ~Bureaucrat(void);
+		~Bureaucrat(void);
 		Bureaucrat& operator=(const Bureaucrat &other);
 
 		const std::string & getName() const;
-		unsigned short int getGrade() const;
-		virtual const char* what() const throw();
-		// GradeTooHighException
+		short int getGrade() const;
+		void incrementGrade();
+		void decrementGrade();
 };
 
 #endif

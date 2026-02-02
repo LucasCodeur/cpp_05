@@ -20,6 +20,7 @@ static void	t_throw_exception();
 static void	t_throw_bureaucrat_too_high_grade_exception();
 static void	t_try_builtInsType(void);
 static void	t_exception_what();
+static void	t_decremente_and_incremente_grade();
 
 int	main(void)
 {
@@ -27,7 +28,9 @@ int	main(void)
 	// t_create_bureaucrat_by_parameters("George", 150);
 	// t_throw_exception();
 	// t_try_builtInsType();
-	t_exception_what();
+	// t_exception_what();
+	// t_throw_bureaucrat_too_high_grade_exception();
+	t_decremente_and_incremente_grade();
 	return (1);
 }
 
@@ -81,10 +84,21 @@ static void	t_try_builtInsType(void)
 	}
 }
 
-// static void	t_throw_bureaucrat_too_high_grade_exception()
-// {
-//
-// }
+static void	t_throw_bureaucrat_too_high_grade_exception()
+{
+	try
+	{
+		Bureaucrat	test("Thierry", 0);
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << "Grade too high exception\n" << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << "Grade too low exception\n" << std::endl;
+	}
+}
 
 struct gfg : public std::exception {
 	virtual const char* what() const throw()
@@ -105,4 +119,23 @@ static void t_exception_what()
     catch (std::exception& gfg1) {
 		std::cout << gfg1.what();
     }
+}
+
+static void	t_decremente_and_incremente_grade()
+{
+	try
+	{
+		Bureaucrat	test("Thierry", 149);
+		test.incrementGrade();
+		std::cout << "Name :" << test.getGrade() << " Grade :" << test.getGrade() << std::endl;
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << "Grade too high exception\n" << std::endl;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << "Grade too low exception\n" << std::endl;
+	}
+
 }
