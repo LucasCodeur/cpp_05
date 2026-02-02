@@ -16,7 +16,7 @@
 #include <string>
 #include <iostream>
 
-class Bureaucrat
+class Bureaucrat : public std::exception
 {
 	private:
 		const std::string 	_name;
@@ -25,11 +25,12 @@ class Bureaucrat
 		Bureaucrat(void);
 		Bureaucrat(std::string const &name, unsigned short int _grade);
 		Bureaucrat(Bureaucrat &other);
-		~Bureaucrat(void);
+		virtual ~Bureaucrat(void);
 		Bureaucrat& operator=(const Bureaucrat &other);
 
 		const std::string & getName() const;
 		unsigned short int getGrade() const;
+		virtual const char* what() const throw();
 		// GradeTooHighException
 };
 

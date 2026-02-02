@@ -16,6 +16,13 @@
 
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
+	try {
+		throw Bureaucrat();
+	}
+	catch (std::exception& Bureaucrat1) {
+		std::cout << Bureaucrat1.what();
+		return ;
+	}
 	std::cout << "Default Constructor of Bureaucrat called" << std::endl;
 }
 
@@ -53,3 +60,17 @@ unsigned short int Bureaucrat::getGrade() const
 	return (this->_grade);
 }
 
+
+const Bureaucrat::char* what(unsigned short int grade) const ()
+{
+	if (grade < 1)
+		return "Grade too low\n";
+	else (grade > 150)
+		return "Grade too high\n";
+}
+
+// void	Bureaucrat::GradeTooHighException() const
+// {
+//
+// }
+// or a Bureaucrat::GradeTooLowException

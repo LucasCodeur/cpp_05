@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 DEPENDANCIES = -MMD -MP
 NAME = MommyWhenIgrowUpIwantToBeAbureaucrat!
 # Debugging flags
-CFLAGS_DEBUG = -Wall -Wextra -pthread -g3 -D DEBUG=1
+CFLAGS_DEBUG = -Wall -Wextra -std=c++98 -pthread -g3 -D DEBUG=1 
 
 P_SRC = src/
 P_SRC_TEST = test/

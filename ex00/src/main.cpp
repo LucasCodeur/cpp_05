@@ -18,14 +18,16 @@ static void	t_create_bureaucrat(void);
 static void	t_create_bureaucrat_by_parameters(std::string name, unsigned short int grade);
 static void	t_throw_exception();
 static void	t_throw_bureaucrat_too_high_grade_exception();
-static void	try_builtInsType(void);
+static void	t_try_builtInsType(void);
+static void	t_exception_what();
 
 int	main(void)
 {
 	// t_create_bureaucrat();
 	// t_create_bureaucrat_by_parameters("George", 150);
 	// t_throw_exception();
-	try_builtInsType();
+	// t_try_builtInsType();
+	t_exception_what();
 	return (1);
 }
 
@@ -64,7 +66,7 @@ static int	compare(int a, int b)
 	return (0);
 }
 
-static void	try_builtInsType(void)
+static void	t_try_builtInsType(void)
 {
 	int	x = 7;
 	try 
@@ -83,3 +85,24 @@ static void	try_builtInsType(void)
 // {
 //
 // }
+
+struct gfg : public std::exception {
+	virtual const char* what() const throw()
+	{
+		return "GeeksforGeeks!! "
+			   "A Computer Science"
+			   " Portal For Geeks";
+	}
+};
+
+#include <bits/stdc++.h>
+static void t_exception_what()
+{
+	
+    try {
+        throw gfg();
+    }
+    catch (std::exception& gfg1) {
+		std::cout << gfg1.what();
+    }
+}
