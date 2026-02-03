@@ -16,30 +16,34 @@
 
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
-	std::cout << "Default Constructor of Bureaucrat called" << std::endl;
+	std::cout << this->_name << " Bureaucrat Default constructor called" << std::endl;
 	if (_grade > 150)
-			throw Bureaucrat::GradeTooHighException();
-	else if (_grade < 1)
 			throw Bureaucrat::GradeTooLowException();
+	else if (_grade < 1)
+			throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(const std::string &_name, short int _grade) : _name(_name), _grade(_grade)
 {
-	std::cout << "Parameterized Constructor of Bureaucrat called" << std::endl;
+	std::cout << this->_name << " Bureaucrat Parameterized constructor called" << std::endl;
 	if (_grade > 150)
-		throw Bureaucrat::GradeTooHighException();
-	else if (_grade < 1)
 		throw Bureaucrat::GradeTooLowException();
+	else if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::Bureaucrat(Bureaucrat &other) : _name(other._name), _grade(other._grade)
 {
-	std::cout << "Copy Constructor of Bureaucrat called" << std::endl;
+	std::cout << this->_name << " Bureaucrat Copy constructor called" << std::endl;
+	if (_grade > 150)
+		throw Bureaucrat::GradeTooLowException();
+	else if (_grade < 1)
+		throw Bureaucrat::GradeTooHighException();
 }
 
 Bureaucrat::~Bureaucrat(void)
 {
-	std::cout << "Deconstructor of Bureaucrat called" << std::endl;
+	std::cout << this->_name << " Bureaucrat Destructor called" << std::endl;
 }
 
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)

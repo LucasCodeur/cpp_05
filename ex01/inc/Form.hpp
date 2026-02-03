@@ -50,12 +50,13 @@ class Form
 		~Form(void);
 		Form& operator=(const Form &other);
 
-		const std::string	getName(void) const;
-		const int			getGradeToSign(void) const;
-		const int			getToExecute(void) const;
+		const std::string&	getName(void) const;
+		int					getGradeToSign(void) const;
+		int					getToExecute(void) const;
 		bool				getFormSigned(void) const;
 
 		void				beSigned(Bureaucrat name);
+
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& other);

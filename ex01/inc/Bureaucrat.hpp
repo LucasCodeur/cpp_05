@@ -17,7 +17,7 @@
 #include <string>
 #include <iostream>
 
-class	Form{};
+class Form;
 
 class Bureaucrat
 {

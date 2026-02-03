@@ -19,7 +19,6 @@ static void	t_create_bureaucrat_by_parameters(std::string name, unsigned short i
 static void	t_throw_exception();
 static void	t_throw_bureaucrat_too_high_grade_exception();
 static void	t_try_builtInsType(void);
-static void	t_exception_what();
 static void	t_decremente_and_incremente_grade(int grade);
 static void	t_print_grade(int grade);
 
@@ -29,11 +28,10 @@ int	main(void)
 	t_create_bureaucrat_by_parameters("George", 150);
 	t_throw_exception();
 	t_try_builtInsType();
-	t_exception_what();
 	t_throw_bureaucrat_too_high_grade_exception();
 	t_decremente_and_incremente_grade(150);
-	t_print_grade(160);
-	return (1);
+	t_print_grade(2);
+	return (0);
 }
 
 static void	t_create_bureaucrat(void)
@@ -118,29 +116,6 @@ static void	t_throw_bureaucrat_too_high_grade_exception()
 	std::cout << std::endl;
 }
 
-struct gfg : public std::exception {
-	virtual const char* what() const throw()
-	{
-		return "GeeksforGeeks!! "
-			   "A Computer Science"
-			   " Portal For Geeks";
-	}
-};
-
-#include <bits/stdc++.h>
-static void t_exception_what()
-{
-	std::cout << "--------------------------------------------------------" << std::endl;
-	std::cout << "Test : exception what" << std::endl;
-	try {
-		throw gfg();
-	}
-	catch (std::exception& gfg1) {
-		std::cout << gfg1.what();
-	}
-	std::cout << std::endl;
-}
-
 static void	t_decremente_and_incremente_grade(int grade)
 {
 	std::cout << "--------------------------------------------------------" << std::endl;
@@ -148,6 +123,7 @@ static void	t_decremente_and_incremente_grade(int grade)
 	try
 	{
 		Bureaucrat	test("Thierry", grade);
+		std::cout << "Name :" << test.getGrade() << " Grade :" << test.getGrade() << std::endl;
 		test.incrementGrade();
 		std::cout << "Name :" << test.getGrade() << " Grade :" << test.getGrade() << std::endl;
 	}

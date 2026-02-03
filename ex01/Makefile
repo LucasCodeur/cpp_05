@@ -26,7 +26,7 @@ P_INC_TEST = test/inc/
 
 SRC = main.cpp \
 	  Bureaucrat.cpp \
-	  Form.cpp \
+	  Form.cpp
 
 SRCS = \
 	$(addprefix $(P_SRC), $(SRC)) \
