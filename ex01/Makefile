@@ -6,7 +6,7 @@
 #    By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/18 12:51:21 by lud-adam          #+#    #+#              #
-#    Updated: 2026/01/28 16:38:51 by lud-adam         ###   ########.fr        #
+#    Updated: 2026/02/03 10:22:38 by lud-adam         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@
 CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 DEPENDANCIES = -MMD -MP
-NAME = MommyWhenIgrowUpIwantToBeAbureaucrat!
+NAME = FormUpMaggots!!
 # Debugging flags
 CFLAGS_DEBUG = -Wall -Wextra -std=c++98 -pthread -g3 -D DEBUG=1 
 
@@ -25,7 +25,8 @@ P_INC = inc/
 P_INC_TEST = test/inc/
 
 SRC = main.cpp \
-	  Bureaucrat.cpp
+	  Bureaucrat.cpp \
+	  Form.cpp \
 
 SRCS = \
 	$(addprefix $(P_SRC), $(SRC)) \
@@ -69,3 +70,5 @@ re: fclean all
 # Debugging rules
 debug:
 	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
+
+-include $(OBJS:.o=.d)

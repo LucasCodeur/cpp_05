@@ -69,3 +69,5 @@ re: fclean all
 # Debugging rules
 debug:
 	@$(MAKE) $(NAME) CFLAGS="$(CFLAGS_DEBUG)"
+
+-include $(OBJS:.o=.d)

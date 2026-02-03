@@ -21,7 +21,7 @@ class Bureaucrat
 {
 	private:
 		const std::string 	_name;
-		short int	_grade;
+		short int			_grade;
 	public:
 		class GradeTooHighException : std::exception
 		{
@@ -52,5 +52,7 @@ class Bureaucrat
 		void incrementGrade();
 		void decrementGrade();
 };
+
+std::ostream& operator<<(std::ostream &os, const Bureaucrat &other);
 
 #endif
