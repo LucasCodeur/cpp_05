@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:52:31 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/01/28 18:35:15 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:28:12 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,4 +87,9 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &other)
 {
 	os << other.getName() << ", bureaucrat grade " << other.getGrade();
 	return (os);
+}
+
+void	Bureaucrat::signForm(Form& paper)
+{
+	paper.beSigned();
 }

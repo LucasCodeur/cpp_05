@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 10:18:04 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/03 10:19:31 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:23:54 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,42 +80,15 @@ bool	Form::getFormSigned(void) const
 	return (this->_formSigned);
 }
 
-//
-// class Form
-// {
-// 	private:
-// 		const std::string	_name;
-// 		const int			_gradeToSign; 
-// 		const int			_gradeToExecute; 
-// 		bool				_formSigned;
-// 	public:
-// 		class GradeTooHighException : std::exception
-// 			{
-// 				public:
-// 					virtual const char* what() const throw ()
-// 					{
-// 						return ("Grade too high\n");
-// 					}
-//
-// 			};
-// 		class GradeTooLowException : std::exception
-// 		{
-// 			public:
-// 				virtual const char* what() const throw ()
-// 				{
-// 					return ("Grade too low\n");
-// 				}
-//
-// 		};
-//
-// 		Form(void);
-// 		Form(std::string name, const int _gradeToSign, const int _gradeToExecute, bool _formSigned);
-// 		Form(Form &other);
-// 		~Form(void);
-// 		Form& operator=(const Form &other);
-//
-//
-// 		void				beSigned(Bureaucrat name);
-// };
-//
-
+void	Form::beSigned(Bureaucrat& name)
+{
+	if (name.getGrade() <= this->_gradeToSign)
+	{
+		if (this->_formSigned == false)
+			this->_formSigned = true;
+		else
+			std::cout << "The form is already signed" << std::endl;
+	}
+	else
+		throw Form::GradeTooLowException();
+}

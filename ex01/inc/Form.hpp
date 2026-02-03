@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:50:56 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/03 10:08:22 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:17:10 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class Form
 		int					getToExecute(void) const;
 		bool				getFormSigned(void) const;
 
-		void				beSigned(Bureaucrat name);
+		void				beSigned(Bureaucrat& name);
 
 };
 

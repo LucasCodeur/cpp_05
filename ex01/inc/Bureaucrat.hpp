@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:42:31 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/03 10:17:11 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:25:18 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ class Bureaucrat
 		void				incrementGrade();
 		void				decrementGrade();
 
-		void				signForm(Form paper);	
+		void				signForm(Form& paper);
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &other);

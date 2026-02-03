@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 16:07:41 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/01/28 18:35:08 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/03 15:22:35 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,14 @@
 static void	t_form_constructor(void);
 static void	t_form_operator_equal(void);
 static void	t_form_higher_grade(void);
+static void	t_form_signed_function(void);
 
 int	main(void)
 {
 	// t_form_constructor();
 	// t_form_operator_equal();
-	t_form_higher_grade();
+	// t_form_higher_grade();
+	t_form_signed_function();
 	return (0);
 }
 
@@ -60,5 +62,21 @@ static void	t_form_higher_grade(void)
 	catch(Form::GradeTooHighException &e)
 	{
 		std::cout << "Error to high" << std::endl;
+	}
+}
+
+static void	t_form_signed_function(void)
+{
+	try
+	{
+		Bureaucrat	test1("Bob", 1);
+		Form	test2("Form42", 1, 1, false);
+		std::cout << test2 << std::endl;
+		test2.beSigned(test1);
+		std::cout << test2 << std::endl;
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << "Error\n";
 	}
 }
