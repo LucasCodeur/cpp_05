@@ -19,13 +19,18 @@ static void	t_form_constructor(void);
 static void	t_form_operator_equal(void);
 static void	t_form_higher_grade(void);
 static void	t_form_signed_function(void);
+static void	t_bureaucrat_sign_form_successfully(void);
+static void	t_bureaucrat_sign_form_cannot_sign_because_already_sign(void);
+static void	t_bureaucrat_sign_form_cannot_because_grade_too_low(void);
 
 int	main(void)
 {
 	// t_form_constructor();
 	// t_form_operator_equal();
 	// t_form_higher_grade();
-	t_form_signed_function();
+	// t_form_signed_function();
+	// t_bureaucrat_sign_form_successfully();
+	t_bureaucrat_sign_form_cannot_because_grade_too_low();
 	return (0);
 }
 
@@ -67,6 +72,8 @@ static void	t_form_higher_grade(void)
 
 static void	t_form_signed_function(void)
 {
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "Test : t_form_signed_function" << std::endl;
 	try
 	{
 		Bureaucrat	test1("Bob", 1);
@@ -78,5 +85,69 @@ static void	t_form_signed_function(void)
 	catch (Form::GradeTooHighException &e)
 	{
 		std::cout << "Error\n";
+	}
+	
+}
+
+static void	t_bureaucrat_sign_form_successfully(void)
+{
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "Test : t_bureaucrat_sign_form" << std::endl;
+	try
+	{
+		Bureaucrat	test1("Bob", 1);
+		Form	test2("Form42", 1, 1, false);
+		test1.signForm(test2);
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << "Error\n";
+	}
+	
+}
+
+static void	t_bureaucrat_sign_form_cannot_sign_because_already_sign(void)
+{
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "Test : t_bureaucrat_sign_form_cannot_sign" << std::endl;
+	try
+	{
+		Bureaucrat	test1("Bob", 1);
+		Form	test2("Form42", 1, 1, true);
+		test1.signForm(test2);
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << "Error\n";
+	}
+	
+}
+
+static void	t_bureaucrat_sign_form_cannot_because_grade_too_low(void)
+{
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "Test : t_bureaucrat_sign_form_cannot_because_grade_too_low" << std::endl;
+	try
+	{
+		Bureaucrat	test1("Bob", 1);
+		Form		test2("Form42", 1, 1, false);
+
+		test1.signForm(test2);
+	}
+	catch (Form::GradeTooHighException &e)
+	{
+		std::cout << "FORM: GRADE TOO HIGH\n";
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << "FORM: GRADE TOO LOW\n";
+	}
+	catch (Bureaucrat::GradeTooHighException &e)
+	{
+		std::cout << "BUREAUCRAT: GRADE TOO HIGH\n";
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << "BUREAUCRAT: GRADE TOO LOW\n";
 	}
 }

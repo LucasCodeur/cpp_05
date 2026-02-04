@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 #include <exception>
 
@@ -91,5 +92,12 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &other)
 
 void	Bureaucrat::signForm(Form& paper)
 {
-	paper.beSigned();
+	try
+	{
+		paper.beSigned(*this);
+	}
+	catch (Form::GradeTooLowException &e)
+	{
+		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << "grade too low" << std::endl;
+	}
 }

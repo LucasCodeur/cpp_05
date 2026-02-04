@@ -54,11 +54,11 @@ class Form
 		int					getGradeToSign(void) const;
 		int					getToExecute(void) const;
 		bool				getFormSigned(void) const;
-
 		void				beSigned(Bureaucrat& name);
+
 
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& other);
+std::ostream&	operator<<(std::ostream& os, const Form& other);
 
 #endif
