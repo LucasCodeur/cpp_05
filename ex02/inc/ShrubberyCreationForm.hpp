@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:58:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 11:35:51 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 13:38:20 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class ShrubberyCreationForm : virtual public AForm
 	public:
 		ShrubberyCreationForm(void);
 		~ShrubberyCreationForm(void);
-		ShrubberyCreationForm(std::string name, const int _gradeToSign, const int _gradeToExecute, bool _formSigned);
+		ShrubberyCreationForm(const std::string _name, bool _formSigned);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
 	private:
