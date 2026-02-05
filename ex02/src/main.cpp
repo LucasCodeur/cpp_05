@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 16:07:41 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 13:41:55 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 14:36:44 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,15 @@ static	void testConstructorShrubbery(void);
 static	void testCopyConstructorShrubbery(void);
 static	void testParameterizedConstructorShrubbery(void);
 static	void testOperatorEqualShrubbery(void);
+static	void testAsciiTreeFormShruberry(void);
 
 int	main(void)
 {
 	// testConstructorShrubbery();
 	// testCopyConstructorShrubbery();
 	// testParameterizedConstructorShrubbery();
-	testOperatorEqualShrubbery();
+	// testOperatorEqualShrubbery();
+	testAsciiTreeFormShruberry();
 	return (0);
 }
 
@@ -47,18 +49,24 @@ static	void testCopyConstructorShrubbery(void)
 
 static	void testParameterizedConstructorShrubbery(void)
 {
-	ShrubberyCreationForm	test("Albert", true);
+	ShrubberyCreationForm	test("Albert");
 
 	std::cout << test << std::endl;
 }
 
 static	void testOperatorEqualShrubbery(void)
 {
-	ShrubberyCreationForm	test("Albert", true);
-	ShrubberyCreationForm	test1("Albert", false);
+	ShrubberyCreationForm	test("Albert");
+	ShrubberyCreationForm	test1("Albert");
 
 	std::cout << test << std::endl;
 	std::cout << test1 << std::endl;
 	test = test1;
 	std::cout << test << std::endl;
+}
+
+static void testAsciiTreeFormShruberry(void)
+{
+	ShrubberyCreationForm	test("Albert");
+	test.create_tree("Mojo_tree");
 }
