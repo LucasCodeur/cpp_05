@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:58:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 14:33:47 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 16:05:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : virtual public AForm
+class ShrubberyCreationForm : public AForm
 {
 	public:
 		ShrubberyCreationForm(void);
@@ -23,7 +23,7 @@ class ShrubberyCreationForm : virtual public AForm
 		ShrubberyCreationForm(const std::string _name);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
-		bool	create_tree(std::string target);
+		bool	createTrees(std::string target);
 	private:
 		
 };

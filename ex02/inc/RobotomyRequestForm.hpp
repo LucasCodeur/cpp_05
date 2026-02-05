@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:58:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 14:33:47 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 15:47:11 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SHRUBBERY_CREATTION_FORM
-# define SHRUBBERY_CREATTION_FORM
+#ifndef ROBOTOMY_REQUEST_FORM
+# define ROBOTOMY_REQUEST_FORM
 
 #include "AForm.hpp"
 
@@ -23,9 +23,8 @@ class RobotomyRequestForm : virtual public AForm
 		RobotomyRequestForm(const std::string _name);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
-		bool	create_tree(std::string target);
+		void	Robotomy(std::string target);
 	private:
-		
 };
 
 #endif

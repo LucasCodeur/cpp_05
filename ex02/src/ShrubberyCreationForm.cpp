@@ -6,11 +6,12 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 09:43:50 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 14:47:35 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 16:06:57 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
+
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(void) : AForm("John", 145, 137, false)
@@ -40,7 +41,7 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string _name) : AForm(_n
 	std::cout << this->getName() << " ShrubberyCreationForm Parameterized Constructor called" << std::endl;
 }
 
-bool ShrubberyCreationForm::create_tree(std::string target)
+bool ShrubberyCreationForm::createTrees(std::string target)
 {
 	std::ofstream	file;
 	std::string		temp;
@@ -120,6 +121,26 @@ bool ShrubberyCreationForm::create_tree(std::string target)
 	file << "   ππ             ≠≈  ∞≠√  ∞∞π√πππππππ∞≠≈×=∞ππ√πππ√√√√∞∞√ππ≈=≠÷÷≈≈=≈≈∞∞≠π∞≈ ππ√≈∞√∞   ππ  π√π∞≈≈≈≠π                                \n";
 	file << "                √≠√≈√≈√       =∞√√√≠=∞π        π   √πππ        ÷×√≈≠≈=≈∞π≠ √ ππ π≈π≈                                               \n";
 	file << "               ÷√∞ π≈      ≠ ∞√π≈≠                               ÷≈≈∞≠≈π≈ππ√∞ √  √  ≈                                              \n";
+
+	file << "                 &&& &&  & &&              \n";
+	file << "            && &\\/&\\|& ()|/ @, &&          \n";
+	file << "            &\\/(/&/&||/& /_/)_&/_&          \n";
+	file << "         &() &\\/&|()|/&\\/ '%\" & ()           \n";
+	file << "        &_\\_&&_\\ |& |&&/&__%_/_& &&          \n";
+	file << "      &&   && & &| &| /& & % ()& /&&         \n";
+	file << "       ()&_---()&\\&\\|&&-&&--%---()~           \n";
+	file << "           &&     \\||/                         \n";
+	file << "                   ||                          \n";
+	file << "      .==========================.             \n";
+	file << "      |      O            O       |             \n";
+	file << "      |          ________          |             \n";
+	file << "      |         /        \\         |             \n";
+	file << "      |        |   ____   |        |             \n";
+	file << "      |         \\________/         |             \n";
+	file << "      '=========================='             \n";
+	file << "                   ||                          \n";
+	file << "                   ||                          \n";
+	file << "                 ======                        \n";
     file.close();
 	std::cout << "File created successfully." << std::endl;
     return (true);
