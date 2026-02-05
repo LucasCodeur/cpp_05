@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 17:58:13 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 16:05:50 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 18:07:22 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const std::string _name);
 		ShrubberyCreationForm(const ShrubberyCreationForm &other);
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &other);
-		bool	createTrees(std::string target);
+		void	execute(std::string target);
 	private:
 		
 };

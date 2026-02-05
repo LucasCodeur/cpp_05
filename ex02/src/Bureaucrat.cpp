@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:52:31 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 10:56:45 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 18:10:12 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,3 +101,5 @@ void	Bureaucrat::signForm(AForm& paper)
 		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << "grade too low" << std::endl;
 	}
 }
+
+

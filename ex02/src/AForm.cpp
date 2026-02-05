@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 10:18:04 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 11:44:38 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 18:10:11 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,3 +100,14 @@ void	AForm::beSigned(Bureaucrat& name)
 	else
 		throw AForm::GradeTooLowException();
 }
+
+void	execute(Bureaucrat const & executor) const
+{
+	if (this->_formSigned == true)
+	{
+		if (executor.getGrade() <= this->_gradeToExecute)
+			this->
+
+	}
+}
+

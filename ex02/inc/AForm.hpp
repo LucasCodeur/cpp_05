@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:50:56 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/05 13:37:29 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 18:07:50 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ class AForm
 		void				setAFormSigned(bool	newSigned);
 
 		void				beSigned(Bureaucrat& name);
+		virtual void		execute(Bureaucrat const & executor) const;
 };
 
 std::ostream&	operator<<(std::ostream& os, const AForm& other);
