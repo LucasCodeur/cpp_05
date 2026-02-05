@@ -6,12 +6,12 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/28 15:52:31 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/03 15:28:12 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 10:56:45 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 #include <exception>
 
@@ -90,13 +90,13 @@ std::ostream& operator<<(std::ostream &os, const Bureaucrat &other)
 	return (os);
 }
 
-void	Bureaucrat::signForm(Form& paper)
+void	Bureaucrat::signForm(AForm& paper)
 {
 	try
 	{
 		paper.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException &e)
+	catch (AForm::GradeTooLowException &e)
 	{
 		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << "grade too low" << std::endl;
 	}

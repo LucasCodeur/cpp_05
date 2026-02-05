@@ -6,7 +6,7 @@
 /*   By: lud-adam <lud-adam@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 09:50:56 by lud-adam          #+#    #+#             */
-/*   Updated: 2026/02/04 18:26:34 by lud-adam         ###   ########.fr       */
+/*   Updated: 2026/02/05 11:43:11 by lud-adam         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ class AForm
 
 		AForm(void);
 		AForm(std::string name, const int _gradeToSign, const int _gradeToExecute, bool _formSigned);
-		AForm(AForm &other);
+		AForm(const AForm &other);
 		virtual ~AForm(void);
 		AForm& operator=(const AForm &other);
 
@@ -54,6 +54,9 @@ class AForm
 		int					getGradeToSign(void) const;
 		int					getToExecute(void) const;
 		bool				getAFormSigned(void) const;
+	
+		void				setAFormSigned(bool	newSigned);
+
 		void				beSigned(Bureaucrat& name);
 };
 
