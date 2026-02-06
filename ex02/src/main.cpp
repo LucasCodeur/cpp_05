@@ -233,8 +233,8 @@ static void	testExecuteFormBureaucrat(void)
 {
 	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "testExecuteFormBureaucrat" << std::endl;
-	ShrubberyCreationForm	test;
-	Bureaucrat test1("Albert", 100);
+	RobotomyRequestForm	test;
+	Bureaucrat test1("Albert", 1);
 	try
 	{
 		test1.signForm(test);

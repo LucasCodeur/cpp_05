@@ -25,12 +25,13 @@ static void	t_bureaucrat_sign_form_cannot_because_grade_too_low(void);
 
 int	main(void)
 {
-	// t_form_constructor();
-	// t_form_operator_equal();
-	// t_form_higher_grade();
-	// t_form_signed_function();
-	// t_bureaucrat_sign_form_successfully();
+	t_form_constructor();
+	t_form_operator_equal();
+	t_form_higher_grade();
+	t_form_signed_function();
+	t_bureaucrat_sign_form_successfully();
 	t_bureaucrat_sign_form_cannot_because_grade_too_low();
+	t_bureaucrat_sign_form_cannot_sign_because_already_sign();
 	return (0);
 }
 

@@ -48,9 +48,10 @@ class Bureaucrat
 		Bureaucrat& operator=(const Bureaucrat &other);
 
 		const std::string & getName() const;
-		short int getGrade() const;
-		void incrementGrade();
-		void decrementGrade();
+		short int			getGrade() const;
+
+		void				incrementGrade();
+		void				decrementGrade();
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &other);

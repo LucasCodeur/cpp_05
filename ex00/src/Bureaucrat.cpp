@@ -49,9 +49,7 @@ Bureaucrat::~Bureaucrat(void)
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 {
 	if (this != &other)
-	{
 		this->_grade = other._grade;
-	}
 	return (*this);
 }
 
