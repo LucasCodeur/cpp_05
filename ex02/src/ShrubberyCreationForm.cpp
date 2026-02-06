@@ -41,18 +41,31 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string _name) : AForm(_n
 	std::cout << this->getName() << " ShrubberyCreationForm Parameterized Constructor called" << std::endl;
 }
 
-bool ShrubberyCreationForm::createTrees(std::string target)
+void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 {
+	try 
+	{
+		this->checkRequirements(executor);
+	}
+	catch (AForm::FormNotSigned &e)
+	{
+		std::cout << "Error: Form not signed" << std::endl;
+		return ;
+	}
 	std::ofstream	file;
-	std::string		temp;
+	std::string	temp;
 
-	temp = target + "_shrubbery";
+	temp = executor.getName() + "_shrubbery";
 	std::cout << temp << std::endl;
-	file.open(temp.c_str());
-    if (!file.is_open())
+	file.exceptions(std::ofstream::failbit | std::ofstream::badbit);
+	try 
+	{
+		file.open(temp.c_str());
+	}
+	catch (std::ofstream::failure e)
 	{
 		std::cout << "Error in creating file!" << std::endl;
-		return (false);
+		return ;
 	}
 	file << "         ≈√                      π≈π     √  ∞                      π                ≈√           ∞           √      ≈π×            \n";
 	file << "         =√π       π               ∞≈    √         √      ≈                   ∞√ π∞∞≈           ∞√        π∞      ÷≈∞        ÷     \n";
@@ -112,7 +125,7 @@ bool ShrubberyCreationForm::createTrees(std::string target)
 	file << "       ×≈=≈∞≈∞≈≈≈≈≈√√√√≈∞=√π∞∞π  √√√  π  π  π   ππππ  π        ∞  √   ∞∞ √ ∞ππ√∞≈≈≠∞≠≈∞≈≠÷π                                        \n";
 	file << "     ====≈≈≈≠≠≈∞∞√√√√∞≈≠∞π∞√   πππ √≈ ππ √  π  √πππππ ππ π∞  √ ∞π π   √ π√ ≈   ≈√π∞√π≠≈√∞≈≠-                                       \n";
 	file << "    =≈≈≈≈≠≠≈≈∞∞√√√π∞≈√π π≠  π   π  √√πππ√∞    π∞π√π√πππ√ππ≈ππππ√√∞  √≈   √√   √  ππππ =π∞ π√≠-                                     \n";
-	file << "  ≠≠∞∞∞≠≈√∞∞∞∞∞√√√π≈=≠√≠π ≠≈  π √   ππππ√≈πππππ∞√√√√√√√√√≠√√ π∞√√  π∞π   ≠√√   ππ π√  π √√ππ    π√									\n";
+	file << "  ≠≠∞∞∞≠≈√∞∞∞∞∞√√√π≈=≠√≠π ≠≈  π √   ππππ√≈πππππ∞√√√√√√√√√≠√√ π∞√√  π∞π   ≠√√   ππ π√  π √√ππ    π√				    \n";
 	file << " ×=∞∞≈√√∞∞∞√√∞∞π√√≈√≠=∞ππππ÷  ∞π  ∞ √ πππ≈∞ √π√≠∞∞√∞∞∞√≈√≈≠√∞π√≈∞ ππ √ √    ≈×   π   π√              ≠                             \n";
 	file << "≠×∞√∞∞∞√√√√√√√∞√≈ππ√≠√√πππ        √π∞ π√π≠≠∞∞∞∞≈∞≈∞≠≠≈≈≠≈≠≠∞≈∞∞∞≠√√∞π√≈≠√π√  √π÷√ π√   π√π  √ππ       √≈                           \n";
 	file << "√∞∞√√√√∞∞√√∞∞∞√ ∞≠≠=≈π π√π  ππ√  ≠ π≈π√√√≠≠∞∞∞∞≠≈≈∞=≠≈∞≠≈≠≠≈≈≈≈≠∞∞∞≈√∞∞π π  ∞√ √≈∞ π           π√  √   π                           \n";
@@ -141,7 +154,6 @@ bool ShrubberyCreationForm::createTrees(std::string target)
 	file << "                   ||                          \n";
 	file << "                   ||                          \n";
 	file << "                 ======                        \n";
-    file.close();
+	file.close();
 	std::cout << "File created successfully." << std::endl;
-    return (true);
 }

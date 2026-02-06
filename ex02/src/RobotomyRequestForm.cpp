@@ -41,13 +41,27 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string _name) : AForm(_name,
 	std::cout << this->getName() << " RobotomyRequestForm Parameterized Constructor called" << std::endl;
 }
 
-void	RobotomyRequestForm::Robotomy(std::string target)
+void	RobotomyRequestForm::execute(Bureaucrat const & executor)
 {
+	try 
+	{
+		this->checkRequirements(executor);
+	}
+	catch (AForm::FormNotSigned &e)
+	{
+		std::cout << "Error: Form not signed" << std::endl;
+		return ;
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << "Error: Grade of bureaucrat isn't enough" << std::endl;
+		return ;
+	}
 	srand(time(0));
 	int temp =  std::rand() % 2;
-	std::cout << temp << std::endl;
+	std::cout << "Makes some drilling noises " << std::endl;
 	if (temp == 0)
-		std::cout << "Makes some drilling noises " << target << " has been robotomized" << std::endl;
+		std::cout << executor.getName() << " has been robotomized" << std::endl;
 	else
-		std::cout << "Tentative to robotomy to : " << target <<  "The robotomy failed." << std::endl;
+		std::cout << "the robotomy of " << executor.getName() << " failed" << std::endl;
 }

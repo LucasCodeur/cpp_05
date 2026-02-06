@@ -26,14 +26,14 @@ class AForm
 		bool				_formSigned;
 	public:
 		class GradeTooHighException : std::exception
-			{
-				public:
-					virtual const char* what() const throw ()
-					{
-						return ("Grade too high\n");
-					}
-				
-			};
+		{
+			public:
+				virtual const char* what() const throw ()
+				{
+					return ("Grade too high\n");
+				}
+			
+		};
 		class GradeTooLowException : std::exception
 		{
 			public:
@@ -42,6 +42,14 @@ class AForm
 					return ("Grade too low\n");
 				}
 			
+		};
+		class FormNotSigned : std::exception
+		{
+			public:
+				virtual const char* what() const throw ()
+				{
+					return ("Form not sign\n");
+				}
 		};
 
 		AForm(void);
@@ -58,7 +66,8 @@ class AForm
 		void				setAFormSigned(bool	newSigned);
 
 		void				beSigned(Bureaucrat& name);
-		virtual void		execute(Bureaucrat const & executor) const;
+		void				checkRequirements(Bureaucrat const & executor) const;
+		virtual void		execute(Bureaucrat const & executor) = 0;
 };
 
 std::ostream&	operator<<(std::ostream& os, const AForm& other);

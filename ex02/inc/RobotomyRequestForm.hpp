@@ -15,7 +15,7 @@
 
 #include "AForm.hpp"
 
-class RobotomyRequestForm : virtual public AForm
+class RobotomyRequestForm : public AForm
 {
 	public:
 		RobotomyRequestForm(void);
@@ -23,7 +23,7 @@ class RobotomyRequestForm : virtual public AForm
 		RobotomyRequestForm(const std::string _name);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
-		void	Robotomy(std::string target);
+		void	execute(Bureaucrat const & executor);
 	private:
 };
 

@@ -23,7 +23,7 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const std::string _name);
 		PresidentialPardonForm(const PresidentialPardonForm &other);
 		PresidentialPardonForm& operator=(const PresidentialPardonForm &other);
-		void	pardoned(std::string target);
+		void	execute(Bureaucrat const & executor);
 	private:
 		
 };

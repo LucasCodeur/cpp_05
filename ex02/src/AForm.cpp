@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "AForm.hpp"
+#include "Bureaucrat.hpp"
 
 AForm::AForm(void) : _name("National decree"), _gradeToSign(2), _gradeToExecute(1), _formSigned (false) 
 {
@@ -98,16 +99,17 @@ void	AForm::beSigned(Bureaucrat& name)
 			std::cout << name.getName() << " couldn't signed " << this->getName() << " because " << "already signed" << std::endl;
 	}
 	else
-		throw AForm::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }
 
-void	execute(Bureaucrat const & executor) const
+void	AForm::checkRequirements(Bureaucrat const & executor) const
 {
 	if (this->_formSigned == true)
 	{
-		if (executor.getGrade() <= this->_gradeToExecute)
-			this->
-
+		if (executor.getGrade() > this->_gradeToExecute)
+			throw Bureaucrat::GradeTooLowException();
 	}
+	else
+		throw AForm::FormNotSigned();
 }
 

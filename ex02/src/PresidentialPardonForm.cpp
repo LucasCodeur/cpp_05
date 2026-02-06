@@ -39,7 +39,16 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string _name) : AForm(
 	std::cout << this->getName() << " PresidentialPardonForm Parameterized Constructor called" << std::endl;
 }
 
-void	PresidentialPardonForm::pardoned(std::string target)
+void	PresidentialPardonForm::execute(Bureaucrat const & executor)
 {
-	std::cout << target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	try 
+	{
+		this->checkRequirements(executor);
+	}
+	catch (AForm::FormNotSigned &e)
+	{
+		std::cout << "Error: Form not signed" << std::endl;
+		return ;
+	}
+	std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
