@@ -12,6 +12,16 @@
 
 #include "Form.hpp"
 
+const char* Form::GradeTooHighException::what() const throw ()
+{
+	return ("Form: Grade too high\n");
+}
+
+const char* Form::GradeTooLowException::what() const throw ()
+{
+	return ("Form: Grade too low\n");
+}
+
 Form::Form(void) : _name("National decree"), _gradeToSign(2), _gradeToExecute(1), _formSigned (false) 
 {
 	std::cout << this->_name << " Form Default constructor called" << std::endl;
@@ -93,5 +103,5 @@ void	Form::beSigned(Bureaucrat& name)
 			std::cout << name.getName() << " couldn't signed " << this->getName() << " because " << "already signed" << std::endl;
 	}
 	else
-		throw Form::GradeTooLowException();
+		throw Bureaucrat::GradeTooLowException();
 }

@@ -15,6 +15,16 @@
 
 #include <exception>
 
+const char* Bureaucrat::GradeTooHighException::what() const throw ()
+{
+	return ("Bureaucrat: Grade too high\n");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw ()
+{
+	return ("Bureaucrat: Grade too low\n");
+}
+
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
 	std::cout << this->_name << " Bureaucrat Default constructor called" << std::endl;
@@ -96,8 +106,11 @@ void	Bureaucrat::signForm(Form& paper)
 	{
 		paper.beSigned(*this);
 	}
-	catch (Form::GradeTooLowException &e)
+	catch(std::exception &e)
 	{
-		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << "grade too low" << std::endl;
+
+		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because ";
+		std::cout << e.what() << std::endl;
 	}
+
 }

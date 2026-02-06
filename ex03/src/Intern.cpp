@@ -17,18 +17,18 @@
 
 Intern::Intern(void)
 {
-	std::cout << " Intern Default constructor called" << std::endl;
+	std::cout << "Intern Default constructor called" << std::endl;
 }
 
 Intern::~Intern(void)
 {
-	std::cout << " Intern Destructor called" << std::endl;
+	std::cout << "Intern Destructor called" << std::endl;
 }
 
 Intern::Intern(const Intern &other)
 {
 	(void)other;
-	std::cout << " Intern Copy Constructor called" << std::endl;
+	std::cout << "Intern Copy Constructor called" << std::endl;
 }
 
 Intern&	Intern::operator=(const Intern &other)
@@ -40,7 +40,7 @@ Intern&	Intern::operator=(const Intern &other)
 Intern::Intern(std::string _useless)
 {
 	(void)_useless;
-	std::cout << " Intern Parameterized Constructor called" << std::endl;
+	std::cout << "Intern Parameterized Constructor called" << std::endl;
 }
 
 AForm* Intern::makeForm(std::string nameForm, std::string nameTarget)

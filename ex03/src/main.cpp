@@ -28,7 +28,7 @@ static void t_make_form(void)
 	
 	unknown.makeForm("robotomy request", "Robot");
 	std::cout << "--------------------------------------------------------" << std::endl;
-	unknown.makeForm("shruberry request", "Tree");
+	unknown.makeForm("shrubbery request", "Tree");
 	std::cout << "--------------------------------------------------------" << std::endl;
 	unknown.makeForm("presidential request", "President");
 	std::cout << "--------------------------------------------------------" << std::endl;

@@ -25,31 +25,20 @@ class AForm
 		const int			_gradeToExecute; 
 		bool				_formSigned;
 	public:
-		class GradeTooHighException : std::exception
+		class FormNotSigned : public std::exception
 		{
 			public:
-				virtual const char* what() const throw ()
-				{
-					return ("Grade too high\n");
-				}
-			
+				virtual const char* what() const throw ();
 		};
-		class GradeTooLowException : std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw ()
-				{
-					return ("Grade too low\n");
-				}
-			
+				virtual const char* what() const throw ();
 		};
-		class FormNotSigned : std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw ()
-				{
-					return ("Form not sign\n");
-				}
+				virtual const char* what() const throw ();
 		};
 
 		AForm(void);

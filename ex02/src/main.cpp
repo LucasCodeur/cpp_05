@@ -102,23 +102,21 @@ static void testAsciiTreeFormShruberry(void)
 		test.beSigned(test1);
 		test.execute(test1);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 	std::cout << "--------------------------------------------------------" << std::endl;
-	ShrubberyCreationForm	test4("Albert");
-	Bureaucrat test5("Mojo_tree", 146);
 	try
 	{
+		Bureaucrat test5("Mojo_tree", 0);
+		ShrubberyCreationForm	test4("Albert");
 		test4.beSigned(test5);
 		test4.execute(test5);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -143,10 +141,9 @@ static void testRandomMessage(void)
 		test.beSigned(test1);
 		test.execute(test1);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -161,11 +158,10 @@ static void testPardonPresidential(void)
 		test.beSigned(test1);
 		test.execute(test1);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
-	};
+		std::cout << e.what() << std::endl;
+	}
 	std::cout << "--------------------------------------------------------" << std::endl;
 	PresidentialPardonForm test3;
 	Bureaucrat test4("George", 150);
@@ -174,10 +170,9 @@ static void testPardonPresidential(void)
 		test3.beSigned(test4);
 		test3.execute(test4);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -216,16 +211,15 @@ static void testFileFailed(void)
 	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "testFileFailed" << std::endl;
 	ShrubberyCreationForm	test("Albert");
-	Bureaucrat test1("Albert", 137);
+	Bureaucrat test1("Albert", 1);
 	try
 	{
 		test.beSigned(test1);
 		test.execute(test1);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -233,16 +227,17 @@ static void	testExecuteFormBureaucrat(void)
 {
 	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "testExecuteFormBureaucrat" << std::endl;
-	RobotomyRequestForm	test;
-	Bureaucrat test1("Albert", 1);
+	// RobotomyRequestForm	test;
+	// ShrubberyCreationForm	test;
+	PresidentialPardonForm test;
+	Bureaucrat test1("Albert", 25);
 	try
 	{
 		test1.signForm(test);
 		test1.executeForm(test);
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Bureaucrat grade's not enough" << std::endl;
-		return ;
+		std::cout << e.what() << std::endl;
 	}
 }

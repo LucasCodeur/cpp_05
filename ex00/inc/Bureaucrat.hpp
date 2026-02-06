@@ -23,23 +23,15 @@ class Bureaucrat
 		const std::string 	_name;
 		short int			_grade;
 	public:
-		class GradeTooHighException : std::exception
+		class GradeTooHighException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw ()
-				{
-					return ("Grade too high\n");
-				}
-			
+				const char* what() const throw ();
 		};
-		class GradeTooLowException : std::exception
+		class GradeTooLowException : public std::exception
 		{
 			public:
-				virtual const char* what() const throw ()
-				{
-					return ("Grade too low\n");
-				}
-			
+				const char* what() const throw ();
 		};
 		Bureaucrat(void);
 		Bureaucrat(std::string const &name, short int _grade);

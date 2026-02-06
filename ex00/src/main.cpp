@@ -105,13 +105,9 @@ static void	t_throw_bureaucrat_too_high_grade_exception()
 	{
 		Bureaucrat	test("Thierry", 0);
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Grade too high exception\n" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << "Grade too low exception\n" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -127,13 +123,9 @@ static void	t_decremente_and_incremente_grade(int grade)
 		test.incrementGrade();
 		std::cout << "Name :" << test.getGrade() << " Grade :" << test.getGrade() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Grade too high exception\n" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << "Grade too low exception\n" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
 }
@@ -147,14 +139,9 @@ static void	t_print_grade(int grade)
 		Bureaucrat	test("Thierry", grade);
 		std::cout << test << std::endl;
 	}
-	catch (Bureaucrat::GradeTooHighException &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Grade too high exception\n" << std::endl;
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << "Grade too low exception\n" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 	std::cout << std::endl;
-
 }

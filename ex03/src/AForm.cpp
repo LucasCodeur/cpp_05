@@ -13,6 +13,21 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
+const char* AForm::GradeTooHighException::what() const throw ()
+{
+	return ("AForm : Grade too high\n");
+}
+
+const char* AForm::GradeTooLowException::what() const throw ()
+{
+	return ("AForm : Grade too low\n");
+}
+
+const char* AForm::FormNotSigned::what() const throw ()
+{
+	return ("AForm : not signed\n");
+}
+
 AForm::AForm(void) : _name("National decree"), _gradeToSign(2), _gradeToExecute(1), _formSigned (false) 
 {
 	std::cout << this->_name << " AForm Default constructor called" << std::endl;

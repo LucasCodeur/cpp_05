@@ -14,6 +14,16 @@
 
 #include <exception>
 
+const char* Bureaucrat::GradeTooHighException::what() const throw ()
+{
+	return ("Grade too high\n");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw ()
+{
+	return ("Grade too low\n");
+}
+
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
 	std::cout << this->_name << " Bureaucrat Default constructor called" << std::endl;

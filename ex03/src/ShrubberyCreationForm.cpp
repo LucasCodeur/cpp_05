@@ -47,9 +47,9 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	{
 		this->checkRequirements(executor);
 	}
-	catch (AForm::FormNotSigned &e)
+	catch (std::exception &e)
 	{
-		std::cout << "Error: Form not signed" << std::endl;
+		std::cout << e.what() << std::endl;
 		return ;
 	}
 	std::ofstream	file;
@@ -64,7 +64,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const
 	}
 	catch (std::ofstream::failure e)
 	{
-		std::cout << "Error in creating file!" << std::endl;
+		std::cout << e.what() << std::endl;
 		return ;
 	}
 	file << "         ≈√                      π≈π     √  ∞                      π                ≈√           ∞           √      ≈π×            \n";

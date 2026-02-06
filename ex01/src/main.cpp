@@ -65,9 +65,9 @@ static void	t_form_higher_grade(void)
 	{
 		Form	test2("Form42", 0, 20, true);
 	}
-	catch(Form::GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		std::cout << "Error to high" << std::endl;
+		std::cout << e.what() << std::endl;
 	}
 }
 
@@ -83,9 +83,9 @@ static void	t_form_signed_function(void)
 		test2.beSigned(test1);
 		std::cout << test2 << std::endl;
 	}
-	catch (Form::GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		std::cout << "Error\n";
+		std::cout << e.what() << std::endl;
 	}
 	
 }
@@ -100,9 +100,9 @@ static void	t_bureaucrat_sign_form_successfully(void)
 		Form	test2("Form42", 1, 1, false);
 		test1.signForm(test2);
 	}
-	catch (Form::GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		std::cout << "Error\n";
+		std::cout << e.what() << std::endl;
 	}
 	
 }
@@ -117,9 +117,9 @@ static void	t_bureaucrat_sign_form_cannot_sign_because_already_sign(void)
 		Form	test2("Form42", 1, 1, true);
 		test1.signForm(test2);
 	}
-	catch (Form::GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		std::cout << "Error\n";
+		std::cout << e.what() << std::endl;
 	}
 	
 }
@@ -135,20 +135,8 @@ static void	t_bureaucrat_sign_form_cannot_because_grade_too_low(void)
 
 		test1.signForm(test2);
 	}
-	catch (Form::GradeTooHighException &e)
+	catch(std::exception &e)
 	{
-		std::cout << "FORM: GRADE TOO HIGH\n";
-	}
-	catch (Form::GradeTooLowException &e)
-	{
-		std::cout << "FORM: GRADE TOO LOW\n";
-	}
-	catch (Bureaucrat::GradeTooHighException &e)
-	{
-		std::cout << "BUREAUCRAT: GRADE TOO HIGH\n";
-	}
-	catch (Bureaucrat::GradeTooLowException &e)
-	{
-		std::cout << "BUREAUCRAT: GRADE TOO LOW\n";
+		std::cout << e.what() << std::endl;
 	}
 }

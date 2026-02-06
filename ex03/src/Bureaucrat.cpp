@@ -15,6 +15,16 @@
 
 #include <exception>
 
+const char* Bureaucrat::GradeTooHighException::what() const throw ()
+{
+	return ("Bureaucrat : Grade too high\n");
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw ()
+{
+	return ("Bureaucrat : Grade too low\n");
+}
+
 Bureaucrat::Bureaucrat(void) : _name("John Doe"), _grade(150)
 {
 	std::cout << this->_name << " Bureaucrat Default constructor called" << std::endl;
@@ -96,9 +106,9 @@ void	Bureaucrat::signForm(AForm& paper)
 	{
 		paper.beSigned(*this);
 	}
-	catch (AForm::GradeTooLowException &e)
+	catch(std::exception &e)
 	{
-		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << "grade too low" << std::endl;
+		std::cout << this->getName() << " couldn't signed " << paper.getName() << " because " << e.what() << std::endl;
 	}
 }
 
@@ -110,14 +120,8 @@ void	Bureaucrat::executeForm(AForm const & form) const
 		form.execute(*this);
 		std::cout << this->getName() << " executed " << form.getName() << std::endl;
 	}
-	catch (Bureaucrat::GradeTooLowException &e)
+	catch (std::exception &e)
 	{
-		std::cout << this->getName() << " couldn't executed " << form.getName() << " because " << "grade too low" << std::endl;
-		return ;
-	}
-	catch (AForm::AForm::FormNotSigned &e)
-	{
-		std::cout << this->getName() << " couldn't executed " << form.getName() << " because " << "form not signed" << std::endl;
-		return ;
+		std::cout << this->getName() << " couldn't executed " << form.getName() << " because " << e.what() << std::endl;
 	}
 }
