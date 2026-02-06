@@ -29,19 +29,22 @@ static	void testPardonPresidential(void);
 static	void testRobotomyConstructors(void);
 static	void testPresidentialConstructors(void);
 static	void testFileFailed(void);
+static	void testExecuteFormBureaucrat(void);
 
 int	main(void)
 {
-	// testConstructorShrubbery();
-	// testCopyConstructorShrubbery();
-	// testParameterizedConstructorShrubbery();
-	// testOperatorEqualShrubbery();
+	testConstructorShrubbery();
+	testCopyConstructorShrubbery();
+	testParameterizedConstructorShrubbery();
+	testOperatorEqualShrubbery();
 	testAsciiTreeFormShruberry();
-	// testRand();
-	// testRandomMessage();
-	// testPardonPresidential();
-	// testRobotomyConstructors();
-	// testPresidentialConstructors();
+	testRand();
+	testRandomMessage();
+	testPardonPresidential();
+	testRobotomyConstructors();
+	testPresidentialConstructors();
+	testFileFailed();
+	testExecuteFormBureaucrat();
 	return (0);
 }
 
@@ -218,6 +221,24 @@ static void testFileFailed(void)
 	{
 		test.beSigned(test1);
 		test.execute(test1);
+	}
+	catch (Bureaucrat::GradeTooLowException &e)
+	{
+		std::cout << "Bureaucrat grade's not enough" << std::endl;
+		return ;
+	}
+}
+
+static void	testExecuteFormBureaucrat(void)
+{
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "testExecuteFormBureaucrat" << std::endl;
+	ShrubberyCreationForm	test;
+	Bureaucrat test1("Albert", 100);
+	try
+	{
+		test1.signForm(test);
+		test1.executeForm(test);
 	}
 	catch (Bureaucrat::GradeTooLowException &e)
 	{

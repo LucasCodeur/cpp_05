@@ -23,7 +23,7 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const std::string _name);
 		RobotomyRequestForm(const RobotomyRequestForm &other);
 		RobotomyRequestForm& operator=(const RobotomyRequestForm &other);
-		void	execute(Bureaucrat const & executor);
+		void	execute(Bureaucrat const & executor) const;
 	private:
 };
 
