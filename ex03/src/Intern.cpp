@@ -43,25 +43,35 @@ Intern::Intern(std::string _useless)
 	std::cout << "Intern Parameterized Constructor called" << std::endl;
 }
 
+void	Intern::free_all(AForm* ptr, AForm** ptrs)
+{
+	for (int i = 0; i < 3; i++)
+	{
+		if (ptr != ptrs[i])
+			delete ptrs[i];
+	}
+}
+
 AForm* Intern::makeForm(std::string nameForm, std::string nameTarget)
 {
-	std::string forms[] = { "robotomy request", "shrubbery request", "presidential request"};
-	PresidentialPardonForm	form1(nameTarget);
-	ShrubberyCreationForm	form2(nameTarget);
-	RobotomyRequestForm		form3(nameTarget);
+	std::string forms[] = {"robotomy request", "shrubbery request", "presidential request"};
 	AForm*					differentForm[3];
 
-	differentForm[0] = &form3;
-	differentForm[1] = &form2;
-	differentForm[2] = &form1;
+	differentForm[0] = new RobotomyRequestForm(nameTarget);
+	differentForm[1] = new ShrubberyCreationForm(nameTarget);
+	differentForm[2] = new PresidentialPardonForm(nameTarget);
 	for (int i = 0; i < 3; i++)
 	{
 		if (forms[i] == nameForm)
-		{
+		{ 
 			std::cout << "Intern creates :" << differentForm[i]->getName() << std::endl;
+			free_all(differentForm[i], differentForm);
 			return (differentForm[i]);
 		}
 	}
+	free_all(NULL, differentForm);
 	std::cout << "Form not exist" << std::endl;
 	return (NULL);
 }
+
+

@@ -61,6 +61,8 @@ static void	t_form_operator_equal(void)
 
 static void	t_form_higher_grade(void)
 {
+	std::cout << "--------------------------------------------------------" << std::endl;
+	std::cout << "Test : t_form_higher_grade" << std::endl;
 	try
 	{
 		Form	test2("Form42", 0, 20, true);
@@ -130,7 +132,7 @@ static void	t_bureaucrat_sign_form_cannot_because_grade_too_low(void)
 	std::cout << "Test : t_bureaucrat_sign_form_cannot_because_grade_too_low" << std::endl;
 	try
 	{
-		Bureaucrat	test1("Bob", 1);
+		Bureaucrat	test1("Bob", 150);
 		Form		test2("Form42", 1, 1, false);
 
 		test1.signForm(test2);

@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include "Intern.hpp"
+#include "Bureaucrat.hpp"
+#include "AForm.hpp"
 
 static void t_make_form(void);
 
@@ -24,13 +26,24 @@ static void t_make_form(void)
 {
 	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "Test : t_make_form" << std::endl;
+	Bureaucrat Albert;
 	Intern	unknown;
+	AForm*	test;
 	
-	unknown.makeForm("robotomy request", "Robot");
+	test = unknown.makeForm("robotomy request", "Robot");
+	Albert.executeForm(*test);
+	delete test;
 	std::cout << "--------------------------------------------------------" << std::endl;
-	unknown.makeForm("shrubbery request", "Tree");
+	test = unknown.makeForm("shrubbery request", "Tree");
+	Albert.executeForm(*test);
+	delete test;
 	std::cout << "--------------------------------------------------------" << std::endl;
-	unknown.makeForm("presidential request", "President");
+	test = unknown.makeForm("presidential request", "President");
+	Albert.executeForm(*test);
+	delete test;
+	test = NULL;
 	std::cout << "--------------------------------------------------------" << std::endl;
-	unknown.makeForm("blabla request", "blabla");
+	test = unknown.makeForm("blabla request", "blabla");
+	if (test != NULL)
+		Albert.executeForm(*test);
 }

@@ -137,6 +137,7 @@ static void	t_print_grade(int grade)
 	try
 	{
 		Bureaucrat	test("Thierry", grade);
+		// test.incrementGrade();
 		std::cout << test << std::endl;
 	}
 	catch (std::exception &e)

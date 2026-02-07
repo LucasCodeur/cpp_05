@@ -178,6 +178,7 @@ static void testPardonPresidential(void)
 
 static void	testRobotomyConstructors(void)
 {
+	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "testRobotomyConstructors" << std::endl;
 	RobotomyRequestForm test3;
 	std::cout << test3 << std::endl;
@@ -193,6 +194,7 @@ static void	testRobotomyConstructors(void)
 
 static void	testPresidentialConstructors(void)
 {
+	std::cout << "--------------------------------------------------------" << std::endl;
 	std::cout << "testPresidentialConstructors" << std::endl;
 	PresidentialPardonForm test3;
 	std::cout << test3 << std::endl;

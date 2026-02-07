@@ -27,6 +27,7 @@ class Intern
 		Intern& operator=(const Intern &other);
 
 		AForm* makeForm(std::string nameForm, std::string nameTarget);
+		void	free_all(AForm* ptr, AForm** ptrs);
 	private:
 		
 };

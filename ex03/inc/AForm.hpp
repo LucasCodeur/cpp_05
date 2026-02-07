@@ -56,6 +56,8 @@ class AForm
 
 		void				beSigned(Bureaucrat& name);
 		void				checkRequirements(Bureaucrat const & executor) const;
+
+		void	free_all(AForm* ptr, AForm** ptrs);
 		virtual void		execute(Bureaucrat const & executor) const = 0;
 };
 
