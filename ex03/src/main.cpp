@@ -31,14 +31,20 @@ static void t_make_form(void)
 	AForm*	test;
 	
 	test = unknown.makeForm("robotomy request", "Robot");
+	if (test == NULL)
+		return ;
 	Albert.executeForm(*test);
 	delete test;
 	std::cout << "--------------------------------------------------------" << std::endl;
 	test = unknown.makeForm("shrubbery request", "Tree");
+	if (test == NULL)
+		return ;
 	Albert.executeForm(*test);
 	delete test;
 	std::cout << "--------------------------------------------------------" << std::endl;
 	test = unknown.makeForm("presidential request", "President");
+	if (test == NULL)
+		return ;
 	Albert.executeForm(*test);
 	delete test;
 	test = NULL;

@@ -14,6 +14,7 @@
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include <new>
 
 Intern::Intern(void)
 {
@@ -57,9 +58,17 @@ AForm* Intern::makeForm(std::string nameForm, std::string nameTarget)
 	std::string forms[] = {"robotomy request", "shrubbery request", "presidential request"};
 	AForm*					differentForm[3];
 
-	differentForm[0] = new RobotomyRequestForm(nameTarget);
-	differentForm[1] = new ShrubberyCreationForm(nameTarget);
-	differentForm[2] = new PresidentialPardonForm(nameTarget);
+	try 
+	{
+		differentForm[0] = new RobotomyRequestForm(nameTarget);
+		differentForm[1] = new ShrubberyCreationForm(nameTarget);
+		differentForm[2] = new PresidentialPardonForm(nameTarget);
+	}
+	catch (const std::bad_alloc& e)
+	{
+		std::cout << "Allocation failed: " << e.what() << std::endl;
+		return (NULL);
+	}
 	for (int i = 0; i < 3; i++)
 	{
 		if (forms[i] == nameForm)
